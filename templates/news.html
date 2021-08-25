@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<header>
+    <h1 class="title">Новости форума!</h1>
+</header>
+
+<ul class="news-list">
+  {% for new in news %}
+    <li><h2>{{ new[0] }}</h2><p>{{ new[1] }}</p>
+  {% endfor %}
+</ul>
+
+{% endblock body %}

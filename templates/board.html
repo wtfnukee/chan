@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block body %}
+
+<header>
+    <h1>/{{ board }}/</h1>
+</header>
+
+<ul class="posts-list">
+  {% for thread in threads %}
+      <li>{% if thread[2] != None %}<a href="{{ url_for("thread", thread=thread[0], board=board) }}"><h2 class="subject">{{ thread[2]|safe }}</h2></a>
+        {% else %}<h2></h2>{% endif %}
+      {{ thread[3]|safe }}
+  {% endfor %}
+</ul>
+
+<form method="POST" class="">
+    <input name="subject" class="text-field">
+    <input name="message" class="text-field">
+    <input type=file name=file>
+    <input type="submit" class="submit-post">
+</form>
+
+<p>{{ text|safe}}</p>
+{% endblock body %}
